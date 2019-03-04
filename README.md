@@ -204,7 +204,7 @@ public class JsonParser
 
 ## Immutability
 
-### Consider immutability where applicable and reasonable (for example get-only properties)
+### Use get-only (readonly) properties whenever possible
 
 😎 COOL
 ```C#
@@ -228,6 +228,42 @@ public class JsonParser
   public JsonParser(string json)
   {
     Json = json;
+  }
+}
+```
+
+### Use readonly collections whenever possible
+
+😎 COOL
+```C#
+public class KeywordProvider
+{
+  public IReadOnlyCollection<string> Keywords { get; }
+
+  public KeywordProvider()
+  {
+    Keywords = new ReadOnlyCollection<string>(new List<string> 
+    {
+      "public",
+      "string"
+    });
+  }
+}
+```
+
+😒 NOT COOL
+```C#
+public class KeywordProvider
+{
+  public IList<string> Keywords { get; }
+
+  public KeywordProvider()
+  {
+    Keywords = new List<string> 
+    {
+      "public",
+      "string"
+    };
   }
 }
 ```
