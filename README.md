@@ -6,12 +6,12 @@ A mostly reasonable approach to write clean, readable, understandable and mainta
 
 ### Use `var` whenever appropriate and possible
 
-😎 COOL
+✅ DO
 ```C#
 var httpClient = new HttpClient();
 ```
 
-😒 NOT COOL
+❌ DON'T
 ```C#
 HttpClient httpClient = new HttpClient();
 ```
@@ -22,14 +22,14 @@ HttpClient httpClient = new HttpClient();
 
 ### Use string interpolation instead of `string.Format`
 
-😎 COOL
+✅ DO
 ```C#
 var url = "http://localhost/api";
 var resource = "users";
 var path = $"{url}/{resource}";
 ```
 
-😒 NOT COOL
+❌ DON'T
 ```C#
 var url = "http://localhost/api";
 var resource = "users";
@@ -38,7 +38,7 @@ var path = string.Format("{0}/{1}", url, resource);
 
 ### Use constants when using string literals more than once
 
-😎 COOL
+✅ DO
 ```C#
 const string error = "user_not_found";
 
@@ -46,7 +46,7 @@ Log.Error(error);
 return BadRequest(error);
 ```
 
-😒 NOT COOL
+❌ DON'T
 ```C#
 Log.Error("user_not_found");
 return BadRequest("user_not_found");
@@ -58,12 +58,12 @@ return BadRequest("user_not_found");
 
 ### Don't use all uppercase letters for abbreviations
 
-😎 COOL
+✅ DO
 ```C#
 public class JsonParser { }
 ```
 
-😒 NOT COOL
+❌ DON'T
 ```C#
 public class JSONParser { }
 ```
@@ -74,7 +74,7 @@ public class JSONParser { }
 
 ### Use the expression body definition for readonly properties
 
-😎 COOL
+✅ DO
 ```C#
 public class User
 {
@@ -91,7 +91,7 @@ public class User
 }
 ```
 
-😒 NOT COOL
+❌ DON'T
 ```C#
 public class User
 {
@@ -120,7 +120,7 @@ public class User
 
 ### Use object initializers over direct property assignment
 
-😎 COOL
+✅ DO
 ```C#
 var user = new User
 {
@@ -129,7 +129,7 @@ var user = new User
 };
 ```
 
-😒 NOT COOL
+❌ DON'T
 ```C#
 var user = new User();
 user.Username = "admin";
@@ -142,12 +142,12 @@ user.Age = 31;
 
 ### Use one underscore as prefix
 
-😎 COOL
+✅ DO
 ```C#
 private string _username;
 ```
 
-😒 NOT COOL
+❌ DON'T
 ```C#
 private string mUsername__;
 
@@ -166,7 +166,7 @@ private string username_;
 
 ### Don't add unnecessary empty lines or whitespaces
 
-😎 COOL
+✅ DO
 ```C#
 public class JsonParser
 {
@@ -179,7 +179,7 @@ public class JsonParser
 }
 ```
 
-😒 NOT COOL
+❌ DON'T
 ```C#
 
 
@@ -206,7 +206,7 @@ public class JsonParser
 
 ### Use get-only (readonly) properties whenever possible
 
-😎 COOL
+✅ DO
 ```C#
 public class JsonParser
 {
@@ -219,7 +219,7 @@ public class JsonParser
 }
 ```
 
-😒 NOT COOL
+❌ DON'T
 ```C#
 public class JsonParser
 {
@@ -234,7 +234,7 @@ public class JsonParser
 
 ### Use readonly collections whenever possible
 
-😎 COOL
+✅ DO
 ```C#
 public class KeywordProvider
 {
@@ -251,7 +251,7 @@ public class KeywordProvider
 }
 ```
 
-😒 NOT COOL
+❌ DON'T
 ```C#
 public class KeywordProvider
 {
@@ -274,7 +274,7 @@ public class KeywordProvider
 
 ### Always use `using` blocks
 
-😎 COOL
+✅ DO
 ```C#
 using (var connection = new SqlConnection(connectionString))
 {
@@ -282,7 +282,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-😒 NOT COOL
+❌ DON'T
 ```C#
 try
 {
@@ -299,7 +299,7 @@ finally
 
 ### Always use braces
 
-😎 COOL
+✅ DO
 ```C#
 if (user.IsElevated)
 {
@@ -307,7 +307,7 @@ if (user.IsElevated)
 }
 ```
 
-😒 NOT COOL
+❌ DON'T
 ```C#
 if (user.IsElevated)
   // Do something
