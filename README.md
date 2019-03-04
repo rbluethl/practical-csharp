@@ -36,6 +36,22 @@ var resource = "users";
 var path = string.Format("{0}/{1}", url, resource);
 ```
 
+### Use constants when using string literals more than once
+
+😎 COOL
+```C#
+const string error = "user_not_found";
+
+Log.Error(error);
+return BadRequest(error);
+```
+
+😒 NOT COOL
+```C#
+Log.Error("user_not_found");
+return BadRequest("user_not_found");
+```
+
 ---
 
 ## Naming
