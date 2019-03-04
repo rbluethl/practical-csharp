@@ -2,9 +2,9 @@
 
 A mostly reasonable approach to write clean, readable, understandable and maintainable code in C#.
 
-## Variable declaration
+## Implicit types
 
-### Use `var` whenever possible.
+### Use `var` whenever appropriate and possible.
 
 ❌ DON'T
 ```C#
@@ -15,6 +15,8 @@ HttpClient httpClient = new HttpClient();
 ```C#
 var httpClient = new HttpClient();
 ```
+
+---
 
 ## String literals
 
@@ -34,6 +36,8 @@ var resource = "users";
 var path = $"{url}/{path}";
 ```
 
+---
+
 ## Naming
 
 ### Don't use all uppercase letters for abbreviations.
@@ -47,6 +51,30 @@ public class JSONParser { }
 ```C#
 public class JsonParser { }
 ```
+
+---
+
+## Instantiation
+
+### Use object initializers over direct property assignment
+
+❌ DON'T
+```C#
+var user = new User();
+user.Username = "admin";
+user.Age = 31;
+```
+
+✅ DO
+```C#
+var user = new User
+{
+  Username = "admin",
+  Age = 31
+};
+```
+
+---
 
 ## Private members
 
@@ -69,6 +97,8 @@ private string username_;
 ```C#
 private string _username;
 ```
+
+---
 
 ## Spacing
 
@@ -108,6 +138,8 @@ public class JsonParser
 }
 ```
 
+---
+
 ## Immutability
 
 ### Consider immutability where applicable and reasonable (for example get-only properties)
@@ -135,5 +167,32 @@ public class JsonParser
   {
     Json = json;
   }
+}
+```
+
+---
+
+## Usings
+
+### Always use `using` blocks
+
+❌ DON'T
+```C#
+try
+{
+  var connection = new SqlConnection(connectionString);
+}
+finally
+{
+  connection.Close();
+  connection.Dispose();
+}
+```
+
+✅ DO
+```C#
+using (var connection = new SqlConnection(connectionString))
+{
+
 }
 ```
