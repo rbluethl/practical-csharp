@@ -4,7 +4,7 @@ A mostly reasonable approach to write clean, readable, understandable and mainta
 
 ## Implicit types
 
-### Use `var` whenever appropriate and possible
+Use `var` whenever appropriate and possible
 
 ✅ DO
 ```C#
@@ -20,7 +20,7 @@ HttpClient httpClient = new HttpClient();
 
 ## String literals
 
-### Use string interpolation instead of `string.Format`
+Use string interpolation instead of `string.Format`
 
 ✅ DO
 ```C#
@@ -36,7 +36,7 @@ var resource = "users";
 var path = string.Format("{0}/{1}", url, resource);
 ```
 
-### Use constants when using string literals more than once
+Use constants when using string literals more than once
 
 ✅ DO
 ```C#
@@ -56,7 +56,7 @@ return BadRequest("user_not_found");
 
 ## Naming
 
-### Don't use all uppercase letters for abbreviations
+Don't use all uppercase letters for abbreviations
 
 ✅ DO
 ```C#
@@ -72,7 +72,7 @@ public class JSONParser { }
 
 ## Properties
 
-### Use the expression body definition for readonly properties
+Use the expression body definition for readonly properties
 
 ✅ DO
 ```C#
@@ -80,9 +80,9 @@ public class User
 {
   public string Username { get; }
   public int Age { get; }
-  
+
   public string DisplayName => $"{Username} ({Age})";
-  
+
   public User(string username, int age)
   {
     Username = username;
@@ -97,15 +97,15 @@ public class User
 {
   public string Username { get; }
   public int Age { get; }
-  
+
   public string DisplayName
   {
-    get 
+    get
     {
       return $"{Username} ({Age})";
     }
   }
-  
+
   public User(string username, int age)
   {
     Username = username;
@@ -118,7 +118,7 @@ public class User
 
 ## Instantiation
 
-### Use object initializers over direct property assignment
+Use object initializers over direct property assignment
 
 ✅ DO
 ```C#
@@ -140,7 +140,7 @@ user.Age = 31;
 
 ## Private members
 
-### Use one underscore as prefix
+Use one underscore as prefix
 
 ✅ DO
 ```C#
@@ -164,7 +164,7 @@ private string username_;
 
 ## Spacing
 
-### Don't add unnecessary empty lines or whitespaces
+Don't add unnecessary empty lines or whitespaces
 
 ✅ DO
 ```C#
@@ -204,7 +204,7 @@ public class JsonParser
 
 ## Immutability
 
-### Use get-only (readonly) properties whenever possible
+Use get-only (readonly) properties whenever possible
 
 ✅ DO
 ```C#
@@ -232,7 +232,7 @@ public class JsonParser
 }
 ```
 
-### Use readonly collections whenever possible
+Use readonly collections whenever possible
 
 ✅ DO
 ```C#
@@ -242,7 +242,7 @@ public class KeywordProvider
 
   public KeywordProvider()
   {
-    Keywords = new ReadOnlyCollection<string>(new List<string> 
+    Keywords = new ReadOnlyCollection<string>(new List<string>
     {
       "public",
       "string"
@@ -259,7 +259,7 @@ public class KeywordProvider
 
   public KeywordProvider()
   {
-    Keywords = new List<string> 
+    Keywords = new List<string>
     {
       "public",
       "string"
@@ -272,7 +272,7 @@ public class KeywordProvider
 
 ## Usings
 
-### Always use `using` blocks
+Always use `using` blocks
 
 ✅ DO
 ```C#
@@ -297,7 +297,7 @@ finally
 
 ## Braces
 
-### Always use braces
+Always use braces
 
 ✅ DO
 ```C#
