@@ -1,6 +1,6 @@
-# Coding Guidelines
+# Practical C#
 
-A mostly reasonable approach to write clean, readable, understandable and maintainable C# code.
+A collection of mostly reasonable guidelines and best practices to write clean, readable, understandable and maintainable C# code.
 
 ## Implicit types
 
