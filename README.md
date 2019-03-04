@@ -22,14 +22,14 @@ HttpClient httpClient = new HttpClient();
 
 ### Use string interpolation instead of `string.Format`
 
-✅ DO
+😎 COOL
 ```C#
 var url = "http://localhost/api";
 var resource = "users";
 var path = $"{url}/{resource}";
 ```
 
-❌ DON'T
+😒 NOT COOL
 ```C#
 var url = "http://localhost/api";
 var resource = "users";
@@ -42,12 +42,12 @@ var path = string.Format("{0}/{1}", url, resource);
 
 ### Don't use all uppercase letters for abbreviations
 
-✅ DO
+😎 COOL
 ```C#
 public class JsonParser { }
 ```
 
-❌ DON'T
+😒 NOT COOL
 ```C#
 public class JSONParser { }
 ```
@@ -58,7 +58,7 @@ public class JSONParser { }
 
 ### Use the expression body definition for readonly properties
 
-✅ DO
+😎 COOL
 ```C#
 public class User
 {
@@ -76,7 +76,7 @@ public class User
 }
 ```
 
-❌ DON'T
+😒 NOT COOL
 ```C#
 public class User
 {
@@ -106,7 +106,7 @@ public class User
 
 ### Use object initializers over direct property assignment
 
-✅ DO
+😎 COOL
 ```C#
 var user = new User
 {
@@ -115,7 +115,7 @@ var user = new User
 };
 ```
 
-❌ DON'T
+😒 NOT COOL
 ```C#
 var user = new User();
 user.Username = "admin";
@@ -128,12 +128,12 @@ user.Age = 31;
 
 ### Use one underscore as prefix
 
-✅ DO
+😎 COOL
 ```C#
 private string _username;
 ```
 
-❌ DON'T
+😒 NOT COOL
 ```C#
 private string mUsername__;
 
@@ -152,7 +152,7 @@ private string username_;
 
 ### Don't add unnecessary empty lines or whitespaces
 
-✅ DO
+😎 COOL
 ```C#
 public class JsonParser
 {
@@ -165,7 +165,7 @@ public class JsonParser
 }
 ```
 
-❌ DON'T
+😒 NOT COOL
 ```C#
 
 
@@ -192,7 +192,7 @@ public class JsonParser
 
 ### Consider immutability where applicable and reasonable (for example get-only properties)
 
-✅ DO
+😎 COOL
 ```C#
 public class JsonParser
 {
@@ -205,7 +205,7 @@ public class JsonParser
 }
 ```
 
-❌ DON'T
+😒 NOT COOL
 ```C#
 public class JsonParser
 {
@@ -224,7 +224,7 @@ public class JsonParser
 
 ### Always use `using` blocks
 
-✅ DO
+😎 COOL
 ```C#
 using (var connection = new SqlConnection(connectionString))
 {
@@ -232,7 +232,7 @@ using (var connection = new SqlConnection(connectionString))
 }
 ```
 
-❌ DON'T
+😒 NOT COOL
 ```C#
 try
 {
@@ -249,7 +249,7 @@ finally
 
 ### Always use braces
 
-✅ DO
+😎 COOL
 ```C#
 if (user.IsElevated)
 {
@@ -257,7 +257,7 @@ if (user.IsElevated)
 }
 ```
 
-❌ DON'T
+😒 NOT COOL
 ```C#
 if (user.IsElevated)
   // Do something
