@@ -1,10 +1,10 @@
 # Coding Guidelines
 
-A mostly reasonable approach to write clean, readable, understandable and maintainable code in C#.
+A mostly reasonable approach to write clean, readable, understandable and maintainable C# code.
 
 ## Implicit types
 
-### Use `var` whenever appropriate and possible.
+### Use `var` whenever appropriate and possible
 
 ❌ DON'T
 ```C#
@@ -40,7 +40,7 @@ var path = $"{url}/{path}";
 
 ## Naming
 
-### Don't use all uppercase letters for abbreviations.
+### Don't use all uppercase letters for abbreviations
 
 ❌ DON'T
 ```C#
