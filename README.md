@@ -65,7 +65,6 @@ public class User
   public string Username { get; }
   public int Age { get; }
   
-  // Do
   public string DisplayName => $"{Username} ({Age})";
   
   public User(string username, int age)
@@ -83,7 +82,6 @@ public class User
   public string Username { get; }
   public int Age { get; }
   
-  // Don't
   public string DisplayName
   {
     get 
