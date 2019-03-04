@@ -6,12 +6,12 @@ A mostly reasonable approach to write clean, readable, understandable and mainta
 
 ### Use `var` whenever appropriate and possible
 
-✅ DO
+😎 COOL
 ```C#
 var httpClient = new HttpClient();
 ```
 
-❌ DON'T
+😒 NOT COOL
 ```C#
 HttpClient httpClient = new HttpClient();
 ```
