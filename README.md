@@ -33,7 +33,7 @@ var path = string.Format("{0}/{1}", url, resource);
 ```C#
 var url = "http://localhost/api";
 var resource = "users";
-var path = $"{url}/{path}";
+var path = $"{url}/{resource}";
 ```
 
 ---
@@ -50,6 +50,54 @@ public class JSONParser { }
 ✅ DO
 ```C#
 public class JsonParser { }
+```
+
+---
+
+## Properties
+
+### Use the expression body definition for readonly properties
+
+❌ DON'T
+```C#
+public class User
+{
+  public string Username { get; }
+  public int Age { get; }
+  
+  // Don't
+  public string DisplayName
+  {
+    get 
+    {
+      return $"{Username} ({Age})";
+    }
+  }
+  
+  public User(string username, int age)
+  {
+    Username = username;
+    Age = age;
+  }
+}
+```
+
+✅ DO
+```C#
+public class User
+{
+  public string Username { get; }
+  public int Age { get; }
+  
+  // Do
+  public string DisplayName => $"{Username} ({Age})";
+  
+  public User(string username, int age)
+  {
+    Username = username;
+    Age = age;
+  }
+}
 ```
 
 ---
