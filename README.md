@@ -199,7 +199,7 @@ using (var connection = new SqlConnection(connectionString))
 
 ## Braces
 
-### *Always* use braces, even if you don't require them
+### **Always** use braces, even if you don't require them
 
 ❌ DON'T
 ```C#
