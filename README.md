@@ -196,3 +196,21 @@ using (var connection = new SqlConnection(connectionString))
 
 }
 ```
+
+## Braces
+
+### *Always* use braces, even if you don't require them
+
+❌ DON'T
+```C#
+if (user.IsElevated)
+  // Do something
+```
+
+✅ DO
+```C#
+if (user.IsElevated)
+{
+  // Do something
+}
+```
