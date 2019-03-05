@@ -60,6 +60,18 @@ var resource = "users";
 var path = string.Format("{0}/{1}", url, resource);
 ```
 
+### Use the [verbatim string identifier](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/verbatim) where appropriate
+
+✅ GOOD
+```csharp
+var path = @"C:\Users\Administrator\Documents";
+```
+
+❌ BAD
+```csharp
+var path = "C:\\Users\\Administrator\\Documents";
+```
+
 ### Use constants when using string literals more than once
 
 ✅ GOOD
@@ -79,6 +91,36 @@ return BadRequest("user_not_found");
 ---
 
 ## Naming
+
+### Use singular for class and enum names
+
+✅ GOOD
+```csharp
+public enum EmploymentType
+{
+  FullTime,
+  PartTime
+}
+
+public class User
+{
+
+}
+```
+
+❌ BAD
+```csharp
+public enum EmploymentTypes
+{
+  FullTime,
+  PartTime
+}
+
+public class Users
+{
+
+}
+```
 
 ### Write code where the purpose and the member type can be inferred from the semantics
 
