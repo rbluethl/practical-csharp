@@ -50,6 +50,8 @@ user.Age = 31;
 
 ### Use string interpolation instead of `string.Format`
 
+_Purpose: Better readability and semantics_
+
 ✅ GOOD
 ```csharp
 var url = "http://localhost/api";
