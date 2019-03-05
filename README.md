@@ -92,34 +92,30 @@ return BadRequest("user_not_found");
 
 ## Naming
 
-### Use singular for class and enum names
+### Avoid unreasonable abbreviations and meaningless, short names. It's 2019 and everyone has code completion. Please don't say that you're saving time by naming your variables `xyz`. It's just ridiculous.
 
 ✅ GOOD
 ```csharp
-public enum EmploymentType
-{
-  FullTime,
-  PartTime
-}
+// Nice
+var validationResult = validator.Validate();
 
-public class User
-{
+// Nice
+var stringBuilder = new StringBuilder();
 
-}
+// Nice
+const string directorySeparator = "/";
 ```
 
 ❌ BAD
 ```csharp
-public enum EmploymentTypes
-{
-  FullTime,
-  PartTime
-}
+// 🤔
+var res = validator.Validate();
 
-public class Users
-{
+// 🤔
+var sbd = new StringBuilder();
 
-}
+// 😢 Seriously?
+const string dsep = "/";
 ```
 
 ### Write code where the purpose and the member type can be inferred from the semantics
@@ -242,6 +238,37 @@ public class JsonParser { }
 ❌ BAD
 ```csharp
 public class JSONParser { }
+```
+
+### Use singular for class and enum names
+
+
+✅ GOOD
+```csharp
+public enum EmploymentType
+{
+  FullTime,
+  PartTime
+}
+
+public class User
+{
+
+}
+```
+
+❌ BAD
+```csharp
+public enum EmploymentTypes
+{
+  FullTime,
+  PartTime
+}
+
+public class Users
+{
+
+}
 ```
 
 ---
