@@ -241,7 +241,7 @@ public class JSONParser { }
 ```
 
 ### Use singular for class and enum names
-
+_Purpose: `enum`s are always addressed individually. For example `EmploymentType.FullTime` is much cleaner than `EmploymentTypes.FullTime`. Furthermore, classes always represent a single instance of an object, for example an individual `User`._
 
 ✅ GOOD
 ```csharp
