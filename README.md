@@ -8,6 +8,8 @@ A collection of mostly reasonable guidelines and best practices to write clean, 
 
 ### Use `var` whenever appropriate and possible
 
+_Purpose: Better readability and cleanliness_ 
+
 ✅ GOOD
 ```csharp
 var httpClient = new HttpClient();
@@ -23,6 +25,8 @@ HttpClient httpClient = new HttpClient();
 ## Instantiation
 
 ### Use object initializers over direct property assignment
+
+_Purpose: Better readability and cleanliness_
 
 ✅ GOOD
 ```csharp
@@ -62,6 +66,8 @@ var path = string.Format("{0}/{1}", url, resource);
 
 ### Use the [verbatim string identifier](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/verbatim) where appropriate
 
+_Purpose: No need to escape backslash characters_ 
+
 ✅ GOOD
 ```csharp
 var path = @"C:\Users\Administrator\Documents";
@@ -73,6 +79,8 @@ var path = "C:\\Users\\Administrator\\Documents";
 ```
 
 ### Use constants when using string literals more than once
+
+_Purpose: Refactoring can become a nightmare when string literals are distributed all over the place multiple times_ 
 
 ✅ GOOD
 ```csharp
@@ -93,6 +101,8 @@ return BadRequest("user_not_found");
 ## Naming
 
 ### Avoid unreasonable abbreviations and meaningless, short names. It's 2019 and everyone has code completion. Please don't say that you're saving time by naming your variables `xyz`. It's just ridiculous.
+
+_Purpose: Shortening variable names doesn't add any value, it even makes code way harder to read and understand_
 
 ✅ GOOD
 ```csharp
@@ -119,6 +129,8 @@ const string dsep = "/";
 ```
 
 ### Write code where the purpose and the member type can be inferred from the semantics
+
+_Purpose: Makes the code tremendously easier to read, maintain and work with_ 
 
 ✅ GOOD
 ```csharp
@@ -174,6 +186,8 @@ public class OrderHelper
 
 ### Avoid redundancy and providing information that can be inferred from the context
 
+_Purpose: Makes the code unnecessarily longer and harder to read and understand_
+
 ✅ GOOD
 ```csharp
 // Clearly an interface
@@ -192,7 +206,9 @@ public interface IOrderManagerInterface { }
 private IList<Order> orderList;
 ```
 
-### Write code that is self-explanatory, avoid unnecessary comments
+### Write code that is self-explanatory, avoid UNNECESSARY comments
+
+_Purpose: The practice shows that comments can become out of date very easily and quickly as the code base grows and evolves. Having a self-explanatory code base contributes to better maintainability and reduces the need to write and maintain unncessary comments. (⚠ This doesn't mean that writing comments is obsolete.)_
 
 ✅ GOOD
 ```csharp
@@ -230,6 +246,8 @@ public class OrderManager
 
 ### Don't use all uppercase letters for abbreviations
 
+_Purpose: Consistent with the .NET Framework and easier to read_
+
 ✅ GOOD
 ```csharp
 public class JsonParser { }
@@ -241,7 +259,8 @@ public class JSONParser { }
 ```
 
 ### Use singular for class and enum names
-_Purpose: `enum`s are always addressed individually. For example `EmploymentType.FullTime` is much cleaner than `EmploymentTypes.FullTime`. Furthermore, classes always represent a single instance of an object, for example an individual `User`._
+
+_Purpose: `enum`s are always addressed individually. For example `EmploymentType.FullTime` is much cleaner than `EmploymentTypes.FullTime`. Furthermore, classes always represent a single instance of an object, for example an individual `User`. Exception: bit field enums_
 
 ✅ GOOD
 ```csharp
@@ -276,6 +295,8 @@ public class Users
 ## Properties
 
 ### Use the expression body definition for readonly properties
+
+_Purpose: Syntactic sugar ¯\\_(ツ)_/¯_
 
 ✅ GOOD
 ```csharp
@@ -323,6 +344,8 @@ public class User
 
 ### Catch exceptions as specific as possible
 
+_Purpose: Better awareness of what went wrong. Allows more precision during logging and error analysis._
+
 ✅ GOOD
 ```csharp
 try
@@ -357,6 +380,8 @@ catch (Exception ex)
 
 ### Always use predefined (if applicable) or custom exceptions, never throw an `Exception` yourself
 
+_Purpose: Very bad practice. `Exception`s should only be thrown by the .NET Framework._
+
 ✅ GOOD
 ```csharp
 public void ProcessOrder(Order order)
@@ -385,6 +410,8 @@ public void ProcessOrder(Order order)
 
 ### Use one underscore as prefix
 
+_Purpose: Better readability_
+
 ✅ GOOD
 ```csharp
 private string _username;
@@ -408,6 +435,8 @@ private string username_;
 ## Spacing
 
 ### Don't add unnecessary empty lines or whitespaces
+
+_Purpose: Better readability, saves space_
 
 ✅ GOOD
 ```csharp
@@ -448,6 +477,8 @@ public class JsonParser
 
 ### Use get-only (readonly) properties whenever possible
 
+_Purpose: Prevents property from accidentally being changed from elsewhere, better prediction of the application's behavior_
+
 ✅ GOOD
 ```csharp
 public class JsonParser
@@ -475,6 +506,8 @@ public class JsonParser
 ```
 
 ### Use readonly collections whenever possible
+
+_Purpose: Prevents collection from being changed from elsewhere, better prediction of the application's behavior_
 
 ✅ GOOD
 ```csharp
@@ -516,6 +549,8 @@ public class KeywordProvider
 
 ### Always use `using` blocks
 
+_Purpose: Resource is automatically disposed when the `using` block finishes_
+
 ✅ GOOD
 ```csharp
 using (var connection = new SqlConnection(connectionString))
@@ -540,6 +575,8 @@ finally
 ## Braces
 
 ### Always use braces
+
+_Purpose: Better readability, easier maintenance when another line is required inside the condition_
 
 ✅ GOOD
 ```csharp
