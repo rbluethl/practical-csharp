@@ -9,12 +9,12 @@ A collection of mostly reasonable guidelines and best practices to write clean, 
 ### Use `var` whenever appropriate and possible
 
 ✅ GOOD
-```C#
+```csharp
 var httpClient = new HttpClient();
 ```
 
 ❌ BAD
-```C#
+```csharp
 HttpClient httpClient = new HttpClient();
 ```
 
@@ -25,7 +25,7 @@ HttpClient httpClient = new HttpClient();
 ### Use object initializers over direct property assignment
 
 ✅ GOOD
-```C#
+```csharp
 var user = new User
 {
   Username = "admin",
@@ -34,7 +34,7 @@ var user = new User
 ```
 
 ❌ BAD
-```C#
+```csharp
 var user = new User();
 user.Username = "admin";
 user.Age = 31;
@@ -47,14 +47,14 @@ user.Age = 31;
 ### Use string interpolation instead of `string.Format`
 
 ✅ GOOD
-```C#
+```csharp
 var url = "http://localhost/api";
 var resource = "users";
 var path = $"{url}/{resource}";
 ```
 
 ❌ BAD
-```C#
+```csharp
 var url = "http://localhost/api";
 var resource = "users";
 var path = string.Format("{0}/{1}", url, resource);
@@ -63,7 +63,7 @@ var path = string.Format("{0}/{1}", url, resource);
 ### Use constants when using string literals more than once
 
 ✅ GOOD
-```C#
+```csharp
 const string error = "user_not_found";
 
 Log.Error(error);
@@ -71,7 +71,7 @@ return BadRequest(error);
 ```
 
 ❌ BAD
-```C#
+```csharp
 Log.Error("user_not_found");
 return BadRequest("user_not_found");
 ```
@@ -83,7 +83,7 @@ return BadRequest("user_not_found");
 ### Write code where the purpose and the member type can be inferred from the semantics
 
 ✅ GOOD
-```C#
+```csharp
 // ✅ The purpose of this class can be easily inferred
 public class OrderManager
 {
@@ -108,7 +108,7 @@ public class OrderManager
 ```
 
 ❌ BAD
-```C#
+```csharp
 // ❌ Purpose of this class can not be easily inferred
 public class OrderHelper
 {
@@ -137,7 +137,7 @@ public class OrderHelper
 ### Avoid redundancy and providing information that can be inferred from the context
 
 ✅ GOOD
-```C#
+```csharp
 // Clearly an interface
 public interface IOrderManager { }
 
@@ -146,7 +146,7 @@ private IList<Order> orders;
 ```
 
 ❌ BAD
-```C#
+```csharp
 // Clearly an interface => no "Interface" postfix necessary
 public interface IOrderManagerInterface { }
 
@@ -157,7 +157,7 @@ private IList<Order> orderList;
 ### Write code that is self-explanatory, avoid unnecessary comments
 
 ✅ GOOD
-```C#
+```csharp
 public class OrderManager 
 {
   public void ProcessOrder(Order order) 
@@ -173,7 +173,7 @@ public class OrderManager
 ```
 
 ❌ BAD
-```C#
+```csharp
 public class OrderManager 
 {
   public void ExecuteOrder(Order order) 
@@ -193,12 +193,12 @@ public class OrderManager
 ### Don't use all uppercase letters for abbreviations
 
 ✅ GOOD
-```C#
+```csharp
 public class JsonParser { }
 ```
 
 ❌ BAD
-```C#
+```csharp
 public class JSONParser { }
 ```
 
@@ -209,7 +209,7 @@ public class JSONParser { }
 ### Use the expression body definition for readonly properties
 
 ✅ GOOD
-```C#
+```csharp
 public class User
 {
   public string Username { get; }
@@ -226,7 +226,7 @@ public class User
 ```
 
 ❌ BAD
-```C#
+```csharp
 public class User
 {
   public string Username { get; }
@@ -255,7 +255,7 @@ public class User
 ### Catch exceptions as specific as possible
 
 ✅ GOOD
-```C#
+```csharp
 try
 {
   System.IO.File.Open(path);
@@ -275,7 +275,7 @@ catch (Exception ex)
 ```
 
 ❌ BAD
-```C#
+```csharp
 try
 {
   System.IO.File.Open(path);
@@ -289,7 +289,7 @@ catch (Exception ex)
 ### Always use custom (or predefined) exceptions, never throw an `Exception` yourself
 
 ✅ GOOD
-```C#
+```csharp
 try
 {
   var result = orderManager.ProcessOrder();
@@ -302,7 +302,7 @@ catch (Exception ex)
 ```
 
 ❌ BAD
-```C#
+```csharp
 try
 {
   var result = orderManager.ProcessOrder();
@@ -320,12 +320,12 @@ catch (Exception ex)
 ### Use one underscore as prefix
 
 ✅ GOOD
-```C#
+```csharp
 private string _username;
 ```
 
 ❌ BAD
-```C#
+```csharp
 private string mUsername__;
 
 // OR
@@ -344,7 +344,7 @@ private string username_;
 ### Don't add unnecessary empty lines or whitespaces
 
 ✅ GOOD
-```C#
+```csharp
 public class JsonParser
 {
   private readonly string _json;
@@ -357,7 +357,7 @@ public class JsonParser
 ```
 
 ❌ BAD
-```C#
+```csharp
 
 
 public class JsonParser
@@ -383,7 +383,7 @@ public class JsonParser
 ### Use get-only (readonly) properties whenever possible
 
 ✅ GOOD
-```C#
+```csharp
 public class JsonParser
 {
   public string Json { get; }
@@ -396,7 +396,7 @@ public class JsonParser
 ```
 
 ❌ BAD
-```C#
+```csharp
 public class JsonParser
 {
   public string Json { get; set; }
@@ -411,7 +411,7 @@ public class JsonParser
 ### Use readonly collections whenever possible
 
 ✅ GOOD
-```C#
+```csharp
 public class KeywordProvider
 {
   public IReadOnlyCollection<string> Keywords { get; }
@@ -428,7 +428,7 @@ public class KeywordProvider
 ```
 
 ❌ BAD
-```C#
+```csharp
 public class KeywordProvider
 {
   public IList<string> Keywords { get; }
@@ -451,7 +451,7 @@ public class KeywordProvider
 ### Always use `using` blocks
 
 ✅ GOOD
-```C#
+```csharp
 using (var connection = new SqlConnection(connectionString))
 {
 
@@ -459,7 +459,7 @@ using (var connection = new SqlConnection(connectionString))
 ```
 
 ❌ BAD
-```C#
+```csharp
 try
 {
   var connection = new SqlConnection(connectionString);
@@ -476,7 +476,7 @@ finally
 ### Always use braces
 
 ✅ GOOD
-```C#
+```csharp
 if (user.IsElevated)
 {
   // Do something
@@ -484,7 +484,7 @@ if (user.IsElevated)
 ```
 
 ❌ BAD
-```C#
+```csharp
 if (user.IsElevated)
   // Do something
 ```
