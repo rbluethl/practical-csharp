@@ -286,30 +286,27 @@ catch (Exception ex)
 }
 ```
 
-### Always use custom (or predefined) exceptions, never throw an `Exception` yourself
+### Always use predefined (if applicable) or custom exceptions, never throw an `Exception` yourself
 
 ✅ GOOD
 ```csharp
-try
+public void ProcessOrder(Order order)
 {
-  var result = orderManager.ProcessOrder();
-}
-catch (Exception ex)
-{
-  // Throw custom exception => pass on exception
-  throw new OrderManagerException("Could not process order.", ex);
+  if (order == null)
+  {
+    throw new ArgumentNullException(nameof(order));
+  }
 }
 ```
 
 ❌ BAD
 ```csharp
-try
+public void ProcessOrder(Order order)
 {
-  var result = orderManager.ProcessOrder();
-}
-catch (Exception ex)
-{
-  throw new Exception("Could not process order.");
+  if (order == null)
+  {
+    throw new Exception("Order is null.");
+  }
 }
 ```
 
