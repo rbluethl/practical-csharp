@@ -593,3 +593,70 @@ if (user.IsElevated)
 if (user.IsElevated)
   // Do something
 ```
+
+# Best practices
+
+## Logging
+
+### Highlight variables
+
+_Purpose: So that you're aware of which part of the message contains variables._
+
+✅ GOOD
+```csharp
+var filePath = @"C:\tmp\my-file.txt";
+
+try 
+{
+  var file = File.Open(filePath);
+}
+catch (Exception ex)
+{
+  // GOOD: Add [ ] to the variable
+  Log.Error($"Could not open file [{filePath}].", ex);
+}
+```
+
+❌ BAD
+```csharp
+var filePath = @"C:\tmp\my-file.txt";
+
+try 
+{
+  var file = File.Open(filePath);
+}
+catch (Exception ex)
+{
+  Log.Error($"Could not open file {filePath}.", ex);
+}
+```
+
+### Always add exceptions to error logs and use appropriate signature of the used logger
+
+_Purpose: So that the exception can be filtered in certain cases (for example in the user interface, since the entire stack trace is useless for the user)._
+
+✅ GOOD
+```csharp
+try 
+{
+  var file = File.Open(@"C:\tmp\my-file.txt");
+}
+catch (Exception ex)
+{
+  // Use appropriate signature of your logger to include the exception as separate parameter
+  Log.Error("Could not open file.", ex);
+}
+```
+
+❌ BAD
+```csharp
+try 
+{
+  var file = File.Open(@"C:\tmp\my-file.txt");
+}
+catch (Exception ex)
+{
+  // Strictly AVOID this. The exception is added directly to the log message, which makes it impossible to filter the exception
+  Log.Error($"Could not open file: {ex}");
+}
+```
